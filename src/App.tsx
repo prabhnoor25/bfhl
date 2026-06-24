@@ -57,7 +57,7 @@ export default function App() {
         .map((line) => line.trim())
         .filter((line) => line.length > 0);
 
-      const response = await fetch("bajaj-bfhl-app.onrender.com/api/bfhl", {
+      const response = await fetch("https://bajaj-bfhl-app.onrender.com/api/bfhl", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
