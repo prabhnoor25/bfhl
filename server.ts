@@ -3,6 +3,7 @@ import cors from "cors";
 import { createServer as createViteServer } from "vite";
 import { processGraph } from "./src/lib/graph.js";
 
+async function startServer() {
   const app = express();
   const PORT = 3000;
   app.use(cors());
@@ -41,6 +42,13 @@ import { processGraph } from "./src/lib/graph.js";
   });
   app.use(vite.middlewares);
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+
+}
+
+startServer().catch((error) => {
+  console.error("Error starting server:", error);
+  process.exit(1);
 });
